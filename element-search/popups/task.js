@@ -24,8 +24,8 @@ for (const modalClose of modalCloseArr) {
         // находим модальное окно
         let modal = document.querySelector('.modal__content').parentElement;
 
-        // modal.remove('modal_active'); // закрывает окно
-        modal.style.display = "none"; 
+        modal.remove('modal_active'); 
+        // modal.style.display = "none"; // тоже закрывает окно
     });
 }
 

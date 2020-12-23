@@ -17,12 +17,13 @@ for (const link of menuLinkArr) {
     link.addEventListener('click', showList);
 }
 
-function showList() {
+function showList(event) { // в саму функцию обработчик следует добавить аргумент
     console.log('клик!');
 
     const menuSub = this.parentElement.querySelector('.menu_sub');
     
     if (menuSub != null) {
+        event.preventDefault(); // и у него вызывать метод отмены стандартного поведения браузера
         menuSub.classList.toggle('menu_active');
     }
 
