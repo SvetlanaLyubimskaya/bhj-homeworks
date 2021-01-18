@@ -81,12 +81,24 @@ class Autocomplete {
         value: 'Содержимое атрибута value'
       }
     */
-    return [
-      {
-        text: 'Чубакка',
-        value: '1'
+    // Для получения всех опций тега select 
+    // достаточно обратиться к this.input.options
+
+    const arr = [];
+
+    const options = this.input.options;
+
+    for (let i = 0; i < options.length; i++) {
+      if (options[i].text.includes(text)) {
+        arr.push({
+          text: options[i].textContent,
+          value: options[i].value
+        })
+      
       }
-    ];
+    }
+    
+    return arr;
   }
 }
 
