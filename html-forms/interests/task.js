@@ -12,7 +12,7 @@ const interestCheck = document.querySelectorAll('.interest__check');
 console.log(interestCheck);
 
 for (const item of interestCheck) {
-    item.addEventListener('click', check);
+    item.addEventListener('change', check);
 }
 
 function check() {
@@ -20,11 +20,11 @@ function check() {
     console.log(this); //элемент, на кот произошло событие
     console.log('клик');
 
-    const closest = this.closest('.interest').interestCheck;
+    const closest = this.closest('.interest').querySelectorAll('.interest__check');
     console.log(closest);
-    const closestArr = Array.from(closest)
+    const closestArr = Array.from(closest);
 
-    if (this.checked == true && closest != null) {
+    if (this.checked == true) {
         closestArr.forEach(el => el.checked = true);
     } else {
         closestArr.forEach(el => el.checked = false);
