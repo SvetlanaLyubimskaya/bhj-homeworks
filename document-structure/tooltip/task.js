@@ -17,11 +17,11 @@ for (const message of messages) {
 
         message.appendChild(tooltip);
 
-        if (tooltip.classList.contains('tooltip_active')) {
+        if (tooltip.classList.contains('tooltip_active') && tooltip.textContent == message.getAttribute('title')) {
             tooltip.classList.remove('tooltip_active'); 
         } else {
             tooltip.classList.add('tooltip_active'); 
-        } // ????? клик по новой подсказке закрывает предыд.!!!
+        } 
 
         tooltip.innerHTML = message.getAttribute('title');
         tooltip.style.top = message.getBoundingClientRect().bottom + 'px';

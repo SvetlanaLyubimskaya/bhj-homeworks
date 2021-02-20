@@ -30,16 +30,15 @@ for (const item of productAdd) {
         const img = item.closest('.product').querySelector('.product__image').getAttribute('src');
         const count = +item.closest('.product').querySelector('.product__quantity-value').innerText;
 
-        // cartProducts.insertAdjacentHTML('beforeEnd', `
-        //     <div class="cart__product" data-id="${id}">
-        //         <img class="cart__product-image" src="${img}">
-        //         <div class="cart__product-count">${count}</div>
-        //     </div>
-        // `)
+        const cardArr = Array.from(document.querySelectorAll('.cart__product')) 
+        console.log(cardArr);
 
-        if (cartProducts.dataset.id == `${id}`) {
-            let num = +cartProducts.dataset.id.querySelector('.cart__product-count').innerText;
-            cartProducts.dataset.id.innerText = num + count;
+        const elem = cardArr.find(item => item.dataset.id == `${id}`);
+        console.log(elem);
+
+        if (elem) {
+            let num = +elem.querySelector('.cart__product-count').textContent;
+            elem.querySelector('.cart__product-count').innerText = num + count;
         } else {
             cartProducts.insertAdjacentHTML('beforeEnd', `
                 <div class="cart__product" data-id="${id}">
@@ -49,8 +48,14 @@ for (const item of productAdd) {
             `)
 
         }
-
+       
     })
 }
+/*document.querySelectorAll("[data-foo]")
+получит все элементы с этим атрибутом.
+
+document.querySelectorAll("[data-foo='1']")
+получит только те, значение которых равно 1.
+*/
     
 
